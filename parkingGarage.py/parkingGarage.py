@@ -1,14 +1,13 @@
 # <-----------------Heathers Section---------->
 class parkingGarage():
-    def __init__(self, availability =100, currentTicket = False):
+    def __init__(self, availability = 100, currentTicket = False):
         self.parkingSpaces = availability
         self.tickets = availability
         self.currentTicket = currentTicket
 
     def takeTicket(self):
         userPark = input('Would you like to park your car? ').lower()
-      
-
+        self.parkingSpaces = 100
         while True:
             if userPark == 'yes' and {self.parkingSpaces} != 0:
                 print( 'Please take your ticket ')
@@ -46,16 +45,16 @@ class parkingGarage():
                 self.currentTicket = False
                 break
             elif self.currentTicket == False:
-                print('Please pay your ticket to exit the parking garage. ')
+                print('Please pay your ticket to exit the parking garage.')
+                parking_garage.runner()
                 break
 
         print(f'The available spaces are: {self.parkingSpaces} available. ')
-        print(f'The available tickets are: {self.tickets} available. ')
-       
+        print(f'The available tickets are: {self.tickets} available. ')      
 # <-----------------End of Peters Section---------->
     def runner(self):
         while True:
-            action = input('What action are you taking?  Type "enter" to enter the garage.  Type "pay" to pay for your ticket.  Type "exit" to exit the parking garage. ').lower()
+            action = input('What action are you taking?  Type "enter" to enter the garage.  Type "pay" to pay for your ticket.  Type "exit" to exit the parking garage. Type "quit" to quit. ').lower()
             if action == 'enter':
                 parking_garage.takeTicket()
             elif action == 'pay':
@@ -63,11 +62,8 @@ class parkingGarage():
             elif action == 'exit':
                 parking_garage.leaveGarage()
                 break
-
+            else:
+                break
 
 parking_garage = parkingGarage()
-
 parking_garage.runner()
-
-
-
